@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SNA-store</title>
+<style>
+body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('BG.png');
+            background-size: cover;
+        }
+
+        .navbar {
+            overflow: hidden;
+            position: relative;
+            background-color: rgba(0, 0, 0, 0.5); /* Mengubah opasitas dan warna latar belakang navbar */
+            z-index: 999;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #e3a413;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: rgb(255, 187, 0);
+        }
+
+    .logo-video {
+        width: 70px;
+        height: auto; /* Mengubah nilai tinggi untuk menjaga aspek rasio */
+        float: left;
+        padding: 10px 20px;
+        opacity: 0.7; /* Tambahkan opasitas */
+    }
+
+    .logo-video video {
+        width: 100%; /* Mengubah lebar video agar sesuai dengan lebar container */
+        height: auto;
+    }
+    .navb {
+        position: fixed;
+}
+    .Navb a {
+        position: absolute;
+        left: 10px;
+        top: 350px;
+    background-color: #f2f2f2;
+    border: 1px solid #e3a413; /* Menambahkan ketebalan garis */
+    border-radius: 12px;
+    padding: 5px 10px; /* Menambahkan padding agar konten tidak terlalu dekat dengan tepi border */
+    margin-right: 10px; /* Memberi jarak antara setiap link */
+    text-decoration: none; /* Menghapus garis bawah default pada tautan */
+    color: #000; /* Menambahkan warna teks agar terlihat lebih jelas */
+}
+.Navb a:hover{color: #ff8a00;}
+
+.Navb a.active {
+    background-color: #e3a413; /* Mengubah warna latar belakang saat tautan aktif */
+    color: #fff; /* Mengubah warna teks saat tautan aktif */
+}
+    .navc {
+        position: fixed;
+}
+    .Navc a {
+        position: absolute;
+        left: 90px;
+        top: 350px;
+    background-color: #f2f2f2;
+    border: 1px solid #e3a413; /* Menambahkan ketebalan garis */
+    border-radius: 12px;
+    padding: 5px 10px; /* Menambahkan padding agar konten tidak terlalu dekat dengan tepi border */
+    margin-right: 10px; /* Memberi jarak antara setiap link */
+    text-decoration: none; /* Menghapus garis bawah default pada tautan */
+    color: #000; /* Menambahkan warna teks agar terlihat lebih jelas */
+}
+.Navc :hover{color: #ff8a00;}
+
+.Navc a.active {
+    background-color: #e3a413; /* Mengubah warna latar belakang saat tautan aktif */
+    color: #fff; /* Mengubah warna teks saat tautan aktif */
+}
+    .navd {
+        position: fixed;
+}
+    .Navd a {
+        position: absolute;
+        left: 150px;
+        top: 350px;
+    background-color: #f2f2f2;
+    border: 1px solid #e3a413; /* Menambahkan ketebalan garis */
+    border-radius: 12px;
+    padding: 5px 10px; /* Menambahkan padding agar konten tidak terlalu dekat dengan tepi border */
+    margin-right: 10px; /* Memberi jarak antara setiap link */
+    text-decoration: none; /* Menghapus garis bawah default pada tautan */
+    color: #000; /* Menambahkan warna teks agar terlihat lebih jelas */
+}
+.Navd :hover{color: #ff8a00;}
+
+.Navd a.active {
+    background-color: #e3a413; /* Mengubah warna latar belakang saat tautan aktif */
+    color: #fff; /* Mengubah warna teks saat tautan aktif */
+}
+/* CSS untuk gaya tampilan */
+.container {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+    /* CSS untuk slideshow */
+    .slideshow-container {
+        height: 200px;
+        width: 400px;
+        position: absolute;
+        top: 100px;
+        left: 427px;
+        max-width: 1000px;
+        margin: auto;
+        overflow: hidden; /* Menyembunyikan gambar yang berada di luar kontainer */
+        border: 1px solid #f2f2f2; /* Tambahkan border agar terlihat jelas */
+    }
+
+    .mySlides {
+        display: none;
+    }
+
+    .prev, .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        margin-top: -22px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+        background-color: rgba(0, 0, 0, 0.5); /* Tambahkan background color */
+    }
+
+    .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+    }
+
+    .prev:hover, .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .social-icons {
+        position: absolute;
+        top: 510px;
+        left: 530px;
+  display: flex;
+  justify-content: center;
+}
+
+.social-icons a {
+  display: inline-block;
+  margin: 0 10px;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #ff8a00, #e52e71, #993399);
+  background-size: 200% 200%;
+  transition: 0.5s;
+}
+
+.social-icons a:hover {
+  background-position: right center;
+}
+
+.social-icons a i {
+  color: #fff;
+  font-size: 24px;
+}
+.container-barang {
+    position: absolute;
+    top: 400px;
+    left: 20px;
+    height: 100px;
+    width: 100px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 10px;
+
+    transition: transform 0.3s ease-in-out;
+}
+
+.container-barang a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container-barang img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.container-barang p {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.container-barang:hover {
+    transform: scale(1.05);
+}
+.container-barang1 {
+    position: absolute;
+    top: 400px;
+    left: 180px;
+    height: 100px;
+    width: 100px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 153, 0, 0.765);
+    transition: transform 0.3s ease-in-out;
+}
+
+.container-barang1 a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container-barang1 img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.container-barang1 p {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.container-barang1:hover {
+    transform: scale(1.05);
+}
+.container-barang2 {
+    position: absolute;
+    top: 400px;
+    left: 340px;
+    height: 100px;
+    width: 100px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 153, 0, 0.765);
+    transition: transform 0.3s ease-in-out;
+}
+
+.container-barang2 a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container-barang2 img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.container-barang2 p {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.container-barang2:hover {
+    transform: scale(1.05);
+}
+.container-barang3 {
+    position: absolute;
+    top: 400px;
+    left: 500px;
+    height: 100px;
+    width: 100px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 153, 0, 0.765);
+    transition: transform 0.3s ease-in-out;
+}
+
+.container-barang3 a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container-barang3 img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.container-barang3 p {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.container-barang3:hover {
+    transform: scale(1.05);
+}
+
+
+
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo-video">
+            <video width="150" height="auto" autoplay loop muted>
+                <source src="/Logo [724B1A3].mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="Tentang kami.html"><i class="fa-solid fa-info-circle"></i> Tentang Kami</a>
+        <a href="login.html" style="float: right;"><i class="fa-solid fa-sign-in-alt"></i> Login</a>
+        <a href="/event.html"><i class="fa-solid fa-calendar-alt"></i> Event</a>
+        <a href="/SNA-AKSESORIS.html"><i class="fa-solid fa-store"></i>SNA-Aksesoris</a>
+    </div>
+    <div class="Navb">
+        <a href="#" class="active">Top-up</a>
+    </div>
+    <div class="Navc">
+        <a href="#" class="">Joki</a>
+    </div>
+    <div class="Navd">
+        <a href="#" class="">Pulsa</a>
+    </div>
+    <div class="item-container"></div>
+    
+    
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="Event1.jpg_large" style="width:100%">
+        </div>
+        <div class="mySlides fade">
+            <img src="PUBG-Spy-x-Fam.jpg" style="width:100%">
+        </div>
+        <div class="mySlides fade">
+            <img src="mystery-shop-free-fire-lebaran-2024.webp" style="width:100%">
+        </div>
+        <!-- Tombol sebelumnya dan berikutnya -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <div class="container-barang">
+        <a href="topupmlbb.html">
+            <img src="Logo_Mobile_Legends_-_Bang_Bang_(2023).png" alt="Top-up mlbb">
+            <p>Mobile Legends</p>
+        </a>
+    </div>
+    <div class="container-barang1">
+        <a href="topupmlbb.html">
+            <img src="Logo_Mobile_Legends_-_Bang_Bang_(2023).png" alt="Top-up mlbb">
+            <p>Mobile Legends</p>
+        </a>
+    </div>
+    <div class="container-barang2">
+        <a href="topupmlbb.html">
+            <img src="Logo_Mobile_Legends_-_Bang_Bang_(2023).png" alt="Top-up mlbb">
+            <p>Mobile Legends</p>
+        </a>
+    </div>
+    <div class="container-barang3">
+        <a href="topupmlbb.html">
+            <img src="Logo_Mobile_Legends_-_Bang_Bang_(2023).png" alt="Top-up mlbb">
+            <p>Mobile Legends</p>
+        </a>
+    </div>
+    
+    </div>
+<div class=""></div>
+</div>
+<script>
+    var slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}
+        slides[slideIndex-1].style.display = "block";
+        setTimeout(showSlides, 5000); // Ubah gambar setiap 2 detik
+    }
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+</script>
+</body>
+</html>
