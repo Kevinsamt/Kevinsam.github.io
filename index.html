@@ -38,7 +38,7 @@ body {
         height: auto; /* Mengubah nilai tinggi untuk menjaga aspek rasio */
         float: left;
         padding: 10px 20px;
-        opacity: 0.7; /* Tambahkan opasitas */
+        opacity: 1; /* Tambahkan opasitas */
     }
 
     .logo-video video {
@@ -294,6 +294,17 @@ body {
     function plusSlides(n) {
         showSlides(slideIndex += n);
     }
+    let prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+    let currentScrollPos = window.pageYOffset;
+    if (prevScrollpos > currentScrollPos) {
+        document.getElementById("navbar").style.top = "0";
+    } else {
+        document.getElementById("navbar").style.top = "-100px";
+    }
+    prevScrollpos = currentScrollPos;
+}
+
 </script>
 </body>
 </html>

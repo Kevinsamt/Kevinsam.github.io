@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   
+<style>
+    /* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    background-image: url(Background.jpg);
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+/* Navigation styles */
+.navbar {
+            overflow: hidden;
+            position: relative;
+            background-color: rgba(0, 0, 0, 0.7); /* Mengubah opasitas dan warna latar belakang navbar */
+            z-index: 999;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #e3a413;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: rgb(255, 187, 0);
+        }
+        
+        .logo-video {
+            width: 70px;
+            height: auto;
+            float: left;
+            padding: 10px 20px;
+            opacity: 0.7;
+        }
+
+        .logo-video video {
+            width: 100%;
+            height: auto;
+        }
+.container-baju {
+    position: absolute;
+    top: 500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.container-baju ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container-baju ul li {
+    width: 300px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.container-baju ul li img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+
+.container-baju ul li p {
+    margin: 10px 0;
+    color: #f0f0f0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.container-baju ul li button {
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+</style>
+<body>
+    <div class="navbar">
+        <div class="logo-video">
+            <video width="150" height="auto" autoplay loop muted>
+                <source src="/Logo [724B1A3].mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <a href="/index.html"><i class="fas fa-house"></i> Home</a>
+        <a href="Tentang kami.html" class="active"><i class="fas fa-info-circle"></i> Tentang Kami</a>
+        <a href="login.html" style="float: right;"><i class="fas fa-sign-in-alt"></i> Login</a>
+        <a href="event.html"><i class="fas fa-calendar-alt"></i> Event</a>
+        <a href="html/SNA-AKSESORIS.html"><i class="fas fa-store"></i> SNA-Aksesoris</a>
+    </div>
+    </div>
+    <div class="container-baju">
+        <ul>
+            <li> 
+                <p>Jersey Sna Away</p>
+                <img src="Jersey1.jpg" alt="">
+                <p>harga 25k</p>
+                <button>beli sekarang</button>
+            </li>
+
+            <li> 
+                <p>Jersey Sna Home</p>
+                <img src="Jersey2.jpg" alt="">
+                <p>Harga 50k</p>
+                <button>beli sekarang</button>
+            </li>
+
+            <li> 
+                <p>Sarung Jempol</p>
+                <img src="SJ1.webp" alt="">
+                <p>Harga 50k</p>
+                <button>beli sekarang</button>
+            </li>
+        </ul>
+    </div>
+
+    </div>
+</body>
+</html>
